@@ -44,3 +44,5 @@ next-env.d.ts
 # Mac
 .DS_Store
 Thumbs.db
+node_modules/
+.next/
