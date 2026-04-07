@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Retro Landing Page 🏖️
 
-## Getting Started
+A mid-century modern landing page with Palm Springs aesthetics — clean geometric lines, warm pastel colors, and architectural shadows.
 
-First, run the development server:
+![Visual Style](https://image-placeholder-shown-as-inspiration)
+
+## Project Overview
+
+**Design Philosophy:** Sun-drenched optimism filtered through geometric precision. A living reinterpretation of mid-century modernism — not a museum exhibit, but a contemporary expression.
+
+**Core Aesthetic:**
+- 🏜️ Desert modern meets poolside luxury
+- 🎨 Warm coral/peach tones against cool teal accents
+- ⬛ Bold architectural shadows and hard offset effects
+- 📐 Clean geometric forms with subtle softening
+- ☀️ Optimistic, sophisticated, intentionally designed
+
+## Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+retro-landing/
+├── app/                    # Next.js App Router
+├── components/             # React components
+│   ├── ui/                # shadcn/ui primitives
+│   ├── layout/            # Layout components
+│   ├── hero/              # Hero section
+│   ├── features/          # Feature cards
+│   ├── navigation/        # Nav components
+│   └── decorative/        # Visual embellishments
+├── lib/                    # Utilities & animations
+├── public/                 # Static assets
+└── docs/                   # Project documentation
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Key Technologies
 
-## Learn More
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** Tailwind CSS + shadcn/ui
+- **Animations:** Framer Motion
+- **Typography:** Playfair Display, Work Sans, Space Mono
 
-To learn more about Next.js, take a look at the following resources:
+## Documentation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [DESIGN.md](./docs/DESIGN.md) — Complete visual design system
+- [PROJECT-PLAN.md](./docs/PROJECT-PLAN.md) — Development roadmap
+- [TECHNICAL.md](./docs/TECHNICAL.md) — Technical specifications
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Autonomous. Biological. Integrated. Sovereign.* 🏔️⚡️
