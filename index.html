@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<<htmlhtml lang="en">
+<<headhead>
+    <<metameta charset="UTF-8">
+    <<metameta name="viewport" content="width=device-width, initial-scale=1.0">
+    <<titletitle>Poolsuite Oasis 🌴</title>
+    <<scriptscript src="https://cdn.tailwindcss.com"></script>
+    <<linklink href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <<stylestyle>
+        :root {
+            --color-pool: #48C9E3;
+            --color-sand: #FDF6E3;
+            --color-shadow: #2E2E2E;
+            --color-sky: #BDEBFF;
+            --color-highlight: #FF6F61;
+        }
+
+        body {
+            background-color: var(--color-sand);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-shadow);
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .brutalist-shadow {
+            box-shadow: 8px 8px 0px var(--color-shadow);
+        }
+
+        .pool-gradient {
+            background: linear-gradient(180deg, var(--color-sky) 0%, var(--color-pool) 100%);
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .monospaced {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .ripple {
+            position: absolute;
+            border: 2px solid var(--color-pool);
+            border-radius: 50%;
+            opacity: 0;
+            animation: ripple 4s infinite;
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(0); opacity: 0.5; }
+            100% { transform: scale(4); opacity: 0; }
+        }
+    </style>
+</head>
+<<bodybody class="flex items-center justify-center">
+
+    <!-- The Sky Background -->
+    <<divdiv class="fixed inset-0 pool-gradient opacity-30 -z-10"></div>
+
+    <!-- The Oasis Island -->
+    <<divdiv class="floating relative z-10 w-full max-w-2xl p-8 bg-white border-2 border-[#2E2E2E] brutalist-shadow rounded-none">
+        
+        <!-- Top Bar -->
+        <<divdiv class="flex justify-between items-center mb-12 border-b-2 border-[#2E2E2E] pb-4">
+            <<divdiv class="text-xl font-bold tracking-tighter uppercase">
+                Poolsuite <<spanspan class="text-blue-400">Oasis</span>
+            </div>
+            <<divdiv class="monospaced text-xs uppercase tracking-widest" style="color: var(--color-shadow)">
+                Suns out // 12:00 PM
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <<divdiv class="text-center mb-16">
+            <<hh1 class="text-6xl font-bold italic tracking-tighter mb-4">
+                Sands & Synths
+            </h1>
+            <<pp class="text-lg font-light opacity-70 max-w-md mx-auto">
+                Welcome to the digital sanctuary. Luxury minimalism meets retro poolside vibes.
+            </p>
+        </div>
+
+        <!-- Retro Cassette Player -->
+        <<divdiv class="mx-auto w-full max-w-sm p-6 border-2 border-[#2E2E2E] bg-stone-100 brutalist-shadow flex flex-col gap-4">
+            <<divdiv class="flex items-center justify-between bg-[#2E2E2E] text-white p-3 rounded-sm">
+                <<spanspan class="text-xs monospaced uppercase tracking-widest">Tape 01: Lo-Fi Dream</span>
+                <<divdiv class="flex gap-2">
+                    <<divdiv class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                    <<divdiv class="w-2 h-2 rounded-full bg-white opacity-20"></div>
+                </div>
+            </div>
+            <<divdiv class="flex justify-center gap-6 py-4">
+                <<buttonbutton class="p-3 border-2 border-[#2E2E2E] hover:bg-[#2E2E2E] hover:text-white transition-colors">
+                    ⏮️
+                </button>
+                <<buttonbutton class="p-4 bg-[#48C9E3] border-2 border-[#2E2E2E] hover:scale-105 transition-transform">
+                    ▶️
+                </button>
+                <<buttonbutton class="p-3 border-2 border-[#2E2E2E] hover:bg-[#2E2E2E] hover:text-white transition-colors">
+                    ⏭️
+                </button>
+            </div>
+            <<divdiv class="w-full h-2 bg-stone-300 border border-[#2E2E2E]">
+                <<divdiv class="h-full bg-[#48C9E3]" style="width: 35%"></div>
+            </div>
+        </div>
+
+        <!-- Footer Links -->
+        <<divdiv class="mt-12 flex justify-center gap-8 text-xs uppercase tracking-widest font-bold">
+            <<aa href="#" class="hover:text-blue-400 transition-colors">Architecture</a>
+            <<aa href="#" class="hover:text-blue-400 transition-colors">Curated Sounds</a>
+            <<aa href="#" class="hover:text-blue-400 transition-colors">Sunscreen</a>
+        </div>
+    </div>
+
+    <!-- Background ripples for a "pool" feel -->
+    <<divdiv class="ripple" style="left: 20%; top: 60%; width: 200px; height: 200px;"></div>
+    <<divdiv class="ripple" style="left: 60%; top: 80%; width: 300px; height: 300px; animation-delay: 2s;"></div>
+
+</body>
+</html>
