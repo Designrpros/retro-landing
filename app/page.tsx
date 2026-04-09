@@ -1,4 +1,4 @@
-import Hero from '@/components/sections/Hero'
+import VideoHero from '@/components/sections/VideoHero'
 import Introduction from '@/components/sections/Introduction'
 import Features from '@/components/sections/Features'
 import Showcase from '@/components/sections/Showcase'
@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Navigation />
       <main>
-        <Hero />
+        <VideoHero />
         <Introduction />
         <Features />
         <Showcase />

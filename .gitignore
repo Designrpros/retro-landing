@@ -46,3 +46,10 @@ next-env.d.ts
 Thumbs.db
 node_modules/
 .next/
+
+# Local dev
+dev_log.txt
+
+# Manim renders (keep source, ignore temp/cache)
+media/media/
+media/__pycache__/
