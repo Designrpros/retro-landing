@@ -56,7 +56,7 @@ export default function VideoHero() {
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
           style={{ opacity: 0.6 }}
-          src="/media/renders/brand_video_combined.mp4"
+          src="/retro-landing/media/renders/brand_video_combined.mp4"
           muted
           loop
           playsInline
