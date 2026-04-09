@@ -1,11 +1,16 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
-  distDir: 'out',
-  assetPrefix: '/retro-landing/',
-  images: {
-    unoptimized: true
-  }
-}
+const isGitHubPages = process.env.GITHUB_PAGES === 'true';
 
-module.exports = nextConfig
+const nextConfig = {
+  reactStrictMode: true,
+  // Static export for GitHub Pages
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+  trailingSlash: true,
+  // Asset prefix for GitHub Pages subdirectory deployment
+  assetPrefix: isGitHubPages ? '/retro-landing/' : undefined,
+};
+
+module.exports = nextConfig;

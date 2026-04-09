@@ -12,6 +12,14 @@ module.exports = {
         dm: ['var(--font-dm)', 'system-ui', 'sans-serif'],
       },
       colors: {
+        cream: {
+          DEFAULT: '#FDF8F3',
+        },
+        teal: {
+          DEFAULT: '#5BA3A3',
+          dark: '#1A3A3A',
+          light: '#E8F5F5',
+        },
         desert: {
           DEFAULT: '#F5E6D3',
           dark: '#E5D6C3',
