@@ -1,56 +1,35 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 
 export default function VideoHero() {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [videoLoaded, setVideoLoaded] = useState(false)
 
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    video.muted = true
-    
-    const playVideo = async () => {
-      try {
-        await video.play()
-        setVideoLoaded(true)
-      } catch (err) {
-        console.log('Autoplay prevented:', err)
-      }
+  const handleVideoRef = (video: HTMLVideoElement | null) => {
+    if (video) {
+      videoRef.current = video
+      video.muted = true
+      video.autoplay = true
+      video.play().catch(() => {
+        // Autoplay may be blocked by browser
+      })
     }
-
-    // Small delay to ensure video is ready
-    video.addEventListener('loadeddata', playVideo)
-    
-    // Fallback timeout
-    const timeout = setTimeout(() => {
-      if (!video.paused) {
-        setVideoLoaded(true)
-      }
-    }, 2000)
-
-    return () => {
-      video.removeEventListener('loadeddata', playVideo)
-      clearTimeout(timeout)
-    }
-  }, [])
+  }
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
-        {/* Fallback gradient - always visible until video loads */}
+        {/* Fallback gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-desert via-desert to-pool/20" />
         
         {/* Video Element */}
         <video
-          ref={videoRef}
+          ref={handleVideoRef}
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: videoLoaded ? 0.6 : 0 }}
+          style={{ opacity: 0.6 }}
           src="/media/renders/brand_video_combined.mp4"
           muted
           loop
