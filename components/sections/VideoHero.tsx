@@ -1,25 +1,51 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion } from 'framer-motion'
-import { ArrowDown } from 'lucide-react'
+import { useRef, useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowDown, Play, Pause, Volume2, VolumeX } from 'lucide-react'
 
 export default function VideoHero() {
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [isPlaying, setIsPlaying] = useState(true)
+  const [isMuted, setIsMuted] = useState(true)
+  const [showControls, setShowControls] = useState(false)
 
-  const handleVideoRef = (video: HTMLVideoElement | null) => {
+  useEffect(() => {
+    const video = videoRef.current
     if (video) {
-      videoRef.current = video
       video.muted = true
       video.autoplay = true
       video.play().catch(() => {
         // Autoplay may be blocked by browser
+        setShowControls(true)
       })
+    }
+  }, [])
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause()
+      } else {
+        videoRef.current.play()
+      }
+      setIsPlaying(!isPlaying)
+    }
+  }
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted
+      setIsMuted(!isMuted)
     }
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      onMouseEnter={() => setShowControls(true)}
+      onMouseLeave={() => setShowControls(false)}
+    >
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         {/* Fallback gradient */}
@@ -27,7 +53,7 @@ export default function VideoHero() {
         
         {/* Video Element */}
         <video
-          ref={handleVideoRef}
+          ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
           style={{ opacity: 0.6 }}
           src="/media/renders/brand_video_combined.mp4"
@@ -40,7 +66,42 @@ export default function VideoHero() {
         <div className="absolute inset-0 bg-gradient-to-t from-desert/90 via-desert/40 to-transparent" />
       </div>
 
-      {/* Floating Geometric Shapes */}
+      {/* Video Controls */}
+      <AnimatePresence>
+        {showControls && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-4 right-4 z-20 flex gap-2"
+          >
+            <button
+              onClick={togglePlay}
+              className="p-2 rounded-full bg-charcoal/30 backdrop-blur-sm hover:bg-charcoal/50 transition-colors"
+              aria-label={isPlaying ? 'Pause video' : 'Play video'}
+            >
+              {isPlaying ? (
+                <Pause size={18} className="text-white" />
+              ) : (
+                <Play size={18} className="text-white" />
+              )}
+            </button>
+            <button
+              onClick={toggleMute}
+              className="p-2 rounded-full bg-charcoal/30 backdrop-blur-sm hover:bg-charcoal/50 transition-colors"
+              aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+            >
+              {isMuted ? (
+                <VolumeX size={18} className="text-white" />
+              ) : (
+                <Volume2 size={18} className="text-white" />
+              )}
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Floating Geometric Shapes (subtle over video) */}
       <div className="absolute inset-0 pointer-events-none z-10">
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
